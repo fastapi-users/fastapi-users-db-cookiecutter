@@ -1,0 +1,13 @@
+{
+    "db_adapter_name": "Tortoise ORM",
+    "db_adapter_slug": "tortoise",
+    "project_name": "FastAPI Users DB for {{ cookiecutter.db_adapter_name }}",
+    "project_slug": "fastapi-users-db-{{ cookiecutter.db_adapter_slug }}",
+    "package_name": "{{ cookiecutter.project_slug|replace('-', '_') }}",
+    "db_adapter_class_name": "{{ cookiecutter.db_adapter_name|replace(' ', '') }}UserDatabase",
+    "author": "François Voron",
+    "author_email": "fvoron@gmail.com",
+    "package_namespace": "fastapi-users/{{ cookiecutter.project_slug }}",
+    "github_url": "https://github.com/{{ cookiecutter.package_namespace }}",
+    "documentation_url": "https://frankie567.github.io/fastapi-users"
+}

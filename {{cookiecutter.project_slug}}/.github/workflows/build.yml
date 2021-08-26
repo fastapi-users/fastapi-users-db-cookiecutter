@@ -1,0 +1,55 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python_version: [3.7, 3.8, 3.9]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: {% raw %}${{ matrix.python_version }}{% endraw %}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.dev.txt
+    - name: Test with pytest
+      env:
+        CODECOV_TOKEN: {% raw %}${{ secrets.CODECOV_TOKEN }}{% endraw %}
+      run: |
+        pytest --cov={{ cookiecutter.project_slug }}/
+        codecov
+    - name: Build and install it on system host
+      run: |
+        flit build
+        flit install --python $(which python)
+        python test_build.py
+
+  release:
+    runs-on: ubuntu-latest
+    needs: test
+    if: startsWith(github.ref, 'refs/tags/')
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.dev.txt
+    - name: Release on PyPI
+      env:
+        FLIT_USERNAME: {% raw %}${{ secrets.FLIT_USERNAME }}{% endraw %}
+        FLIT_PASSWORD: {% raw %}${{ secrets.FLIT_PASSWORD }}{% endraw %}
+      run: |
+        flit publish
