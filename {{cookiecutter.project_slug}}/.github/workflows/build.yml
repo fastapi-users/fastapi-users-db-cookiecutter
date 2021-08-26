@@ -24,7 +24,7 @@ jobs:
       env:
         CODECOV_TOKEN: {% raw %}${{ secrets.CODECOV_TOKEN }}{% endraw %}
       run: |
-        pytest --cov={{ cookiecutter.project_slug }}/
+        pytest --cov={{ cookiecutter.package_name }}/
         codecov
     - name: Build and install it on system host
       run: |
