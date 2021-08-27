@@ -9,5 +9,5 @@
     "author_email": "fvoron@gmail.com",
     "package_namespace": "fastapi-users/{{ cookiecutter.project_slug }}",
     "github_url": "https://github.com/{{ cookiecutter.package_namespace }}",
-    "documentation_url": "https://frankie567.github.io/fastapi-users"
+    "documentation_url": "https://fastapi-users.github.io/fastapi-users"
 }

@@ -8,7 +8,7 @@
     <em>Ready-to-use and customizable users management for FastAPI</em>
 </p>
 
-[![build]({{ cookiecutter.github_url }}/workflows/Build/badge.svg)](https://github.com/frankie567/fastapi-users/actions)
+[![build]({{ cookiecutter.github_url }}/workflows/Build/badge.svg)](https://github.com/fastapi-users/fastapi-users/actions)
 [![codecov](https://codecov.io/gh/{{ cookiecutter.package_namespace }}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{ cookiecutter.package_namespace }})
 [![PyPI version](https://badge.fury.io/py/{{ cookiecutter.project_slug }}.svg)](https://badge.fury.io/py/{{ cookiecutter.project_slug }})
 [![Downloads](https://pepy.tech/badge/{{ cookiecutter.project_slug }})](https://pepy.tech/project/{{ cookiecutter.project_slug }})
@@ -18,9 +18,9 @@
 
 ---
 
-**Documentation**: <a href="https://frankie567.github.io/fastapi-users/" target="_blank">https://frankie567.github.io/fastapi-users/</a>
+**Documentation**: <a href="https://fastapi-users.github.io/fastapi-users/" target="_blank">https://fastapi-users.github.io/fastapi-users/</a>
 
-**Source Code**: <a href="https://github.com/frankie567/fastapi-users" target="_blank">https://github.com/frankie567/fastapi-users</a>
+**Source Code**: <a href="https://github.com/fastapi-users/fastapi-users" target="_blank">https://github.com/fastapi-users/fastapi-users</a>
 
 ---
 
