@@ -56,7 +56,8 @@ async def test_queries({{ cookiecutter.db_adapter_slug }}_user_db: {{ cookiecutt
 
     # Exception when inserting non-nullable fields
     with pytest.raises():
-        wrong_user = UserDB(hashed_password="aaa")
+        # Use construct to bypass Pydantic validation
+        wrong_user = UserDB.construct(hashed_password="aaa")
         await {{ cookiecutter.db_adapter_slug }}_user_db.create(wrong_user)
 
     # Unknown user
