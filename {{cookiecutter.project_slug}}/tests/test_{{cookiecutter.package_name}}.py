@@ -16,7 +16,6 @@ async def {{ cookiecutter.db_adapter_slug }}_user_db_oauth() -> AsyncGenerator[{
 
 
 @pytest.mark.asyncio
-@pytest.mark.db
 async def test_queries({{ cookiecutter.db_adapter_slug }}_user_db: {{ cookiecutter.db_adapter_class_name }}[UserDB]):
     user = UserDB(
         email="lancelot@camelot.bt",
@@ -71,7 +70,6 @@ async def test_queries({{ cookiecutter.db_adapter_slug }}_user_db: {{ cookiecutt
 
 
 @pytest.mark.asyncio
-@pytest.mark.db
 async def test_queries_custom_fields({{ cookiecutter.db_adapter_slug }}_user_db: {{ cookiecutter.db_adapter_class_name }}[UserDB]):
     """It should output custom fields in query result."""
     user = UserDB(
@@ -88,7 +86,6 @@ async def test_queries_custom_fields({{ cookiecutter.db_adapter_slug }}_user_db:
 
 
 @pytest.mark.asyncio
-@pytest.mark.db
 async def test_queries_oauth(
     {{ cookiecutter.db_adapter_slug }}_user_db_oauth: {{ cookiecutter.db_adapter_class_name }}[UserDBOAuth],
     oauth_account1,

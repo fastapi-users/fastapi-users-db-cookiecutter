@@ -1,29 +1,62 @@
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "--ignore=test_build.py"
+
 [build-system]
-requires = ["flit_core >=2,<3"]
+requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
-[tool.flit.metadata]
-module = "{{ cookiecutter.package_name }}"
-dist-name = "{{ cookiecutter.project_slug }}"
-author = "{{ cookiecutter.author }}"
-author-email = "{{ cookiecutter.author_email }}"
-home-page = "{{ cookiecutter.github_url }}"
+[tool.flit.module]
+name = "{{ cookiecutter.package_name }}"
+
+[project]
+name = "{{ cookiecutter.project_slug }}"
+authors = [
+    { name = "{{ cookiecutter.author }}", email = "{{ cookiecutter.author_email }}" }
+]
+description = "FastAPI Users database adapter for {{ cookiecutter.db_adapter_class_name }}"
+readme = "README.md"
+dynamic = ["version"]
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Development Status :: 5 - Production/Stable",
+    "Framework :: FastAPI",
     "Framework :: AsyncIO",
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3 :: Only",
     "Topic :: Internet :: WWW/HTTP :: Session",
 ]
-description-file = "README.md"
 requires-python = ">=3.7"
-requires = [
-    "fastapi-users >= 6.1.2"
+dependencies = [
+    "fastapi-users >= 10.0.0"
 ]
 
-[tool.flit.metadata.urls]
+[project.optional-dependencies]
+dev = [
+    "flake8",
+    "pytest",
+    "requests",
+    "isort",
+    "pytest-asyncio",
+    "flake8-docstrings",
+    "black",
+    "mypy",
+    "codecov",
+    "pytest-cov",
+    "pytest-mock",
+    "asynctest",
+    "flit",
+    "bumpversion",
+    "httpx",
+    "asgi_lifespan",
+]
+
+[project.urls]
 Documentation = "{{ cookiecutter.documentation_url }}"
