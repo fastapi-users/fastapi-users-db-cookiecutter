@@ -1,3 +1,8 @@
+install:
+	python -m pip install --upgrade pip
+	pip install flit
+	flit install --deps develop
+
 isort:
 	isort ./{{ cookiecutter.package_name }} ./tests
 
