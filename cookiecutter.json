@@ -5,6 +5,7 @@
     "project_slug": "fastapi-users-db-{{ cookiecutter.db_adapter_slug }}",
     "package_name": "{{ cookiecutter.project_slug|replace('-', '_') }}",
     "db_adapter_class_name": "{{ cookiecutter.db_adapter_name|replace(' ', '') }}UserDatabase",
+    "access_token_adapter_class_name": "{{ cookiecutter.db_adapter_name|replace(' ', '') }}AccessTokenDatabase",
     "author": "François Voron",
     "author_email": "fvoron@gmail.com",
     "package_namespace": "fastapi-users/{{ cookiecutter.project_slug }}",
